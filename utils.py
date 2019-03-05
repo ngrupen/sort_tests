@@ -24,7 +24,7 @@ class ObjectDetector():
             # grayscale version of input frame, motion detection, find contours
             gray_f = cv2.cvtColor(f, cv2.COLOR_BGR2GRAY)
             motion_mask = self.fgbg.apply(gray_f)
-            contours, hierarchy = cv2.findContours(gray_f.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+            contours, hierarchy = cv2.findContours(gray_f.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
             
             # construct list of bounding boxes from contours
             for c in contours:
